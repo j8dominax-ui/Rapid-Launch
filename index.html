@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rapid Launch Package — Landing Page + 5-Email Sequence in 72 Hours</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10152A;
+    --ink-2:#181F3B;
+    --paper:#F4F2EA;
+    --paper-dim:#E7E3D6;
+    --signal:#FF5A33;
+    --signal-dim:#C7401F;
+    --tape:#FFC845;
+    --slate:#9198B3;
+    --line: rgba(244,242,234,0.14);
+    --line-dark: rgba(16,21,42,0.12);
+    --radius: 2px;
+    --wrap: 1120px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Space Grotesk', sans-serif;
+    font-size:17px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{ display:block; max-width:100%; }
+  a{ color:inherit; }
+  ul{ margin:0; padding:0; list-style:none; }
+  h1,h2,h3,p{ margin:0; }
+
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.06em;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--signal);
+    font-weight:600;
+  }
+  .eyebrow.on-paper{ color:var(--signal-dim); }
+
+  .wrap{
+    max-width:var(--wrap);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  a.btn-focus:focus-visible,
+  button:focus-visible,
+  a:focus-visible,
+  summary:focus-visible{
+    outline:2px solid var(--tape);
+    outline-offset:3px;
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(16,21,42,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:68px;
+  }
+  .nav-mark{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    letter-spacing:0.08em;
+    font-weight:600;
+  }
+  .nav-mark span{ color:var(--signal); }
+  .nav-cta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--ink);
+    background:var(--signal);
+    padding:10px 18px;
+    border-radius:var(--radius);
+    font-weight:600;
+    transition:background .15s ease;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{ background:var(--tape); }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:96px 0 64px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:56px 56px;
+    mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 40%, transparent 100%);
+    opacity:0.5;
+    pointer-events:none;
+  }
+  .hero-inner{ position:relative; z-index:2; max-width:820px; }
+  .hero .eyebrow{ margin-bottom:18px; display:flex; align-items:center; gap:10px; }
+  .hero .eyebrow::before{
+    content:"●";
+    color:var(--signal);
+    font-size:8px;
+    animation:pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:0.25;} }
+
+  .hero h1{
+    font-size:clamp(38px, 5.6vw, 68px);
+    font-weight:700;
+    line-height:1.05;
+    letter-spacing:-0.01em;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--signal);
+  }
+  .hero p.sub{
+    margin-top:22px;
+    font-size:19px;
+    max-width:600px;
+    color:var(--slate);
+  }
+
+  .hero-ctas{
+    margin-top:36px;
+    display:flex; gap:14px; flex-wrap:wrap;
+  }
+  .btn-primary, .btn-secondary{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    text-decoration:none;
+    font-weight:600;
+    padding:15px 26px;
+    border-radius:var(--radius);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn-primary{
+    background:var(--signal);
+    color:var(--ink);
+  }
+  .btn-primary:hover{ background:var(--tape); transform:translateY(-1px); }
+  .btn-secondary{
+    background:transparent;
+    color:var(--paper);
+    border:1px solid var(--line);
+  }
+  .btn-secondary:hover{ border-color:var(--paper); }
+
+  /* tracking meta row */
+  .meta-row{
+    margin-top:52px;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .meta-cell{
+    padding:16px 20px;
+    border-right:1px solid var(--line);
+  }
+  .meta-cell:last-child{ border-right:none; }
+  .meta-cell .k{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--slate);
+    display:block;
+    margin-bottom:6px;
+  }
+  .meta-cell .v{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    font-weight:600;
+    color:var(--paper);
+  }
+  .meta-cell .v.tape{ color:var(--tape); }
+
+  /* stamp */
+  .stamp{
+    position:absolute;
+    top:70px; right:28px;
+    width:128px; height:128px;
+    border:2.5px solid var(--signal);
+    border-radius:50%;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    transform:rotate(11deg);
+    color:var(--signal);
+    font-family:'Bebas Neue', sans-serif;
+    letter-spacing:0.04em;
+    line-height:1.15;
+    z-index:3;
+  }
+  .stamp .l1{ font-size:22px; }
+  .stamp .l2{ font-size:12px; font-family:'IBM Plex Mono', monospace; letter-spacing:0.14em; margin-top:4px; }
+  @media (min-width:760px){ .stamp{ display:flex; } }
+
+  /* ---------- PERFORATION DIVIDER (signature element) ---------- */
+  .perf{
+    height:26px;
+    position:relative;
+    background:var(--ink);
+  }
+  .perf.to-paper{ background-image: radial-gradient(circle 8px at 50% 100%, var(--ink) 8px, var(--paper) 8.5px); }
+  .perf.to-ink{ background-color:var(--paper); background-image: radial-gradient(circle 8px at 50% 0%, var(--paper) 8px, var(--ink) 8.5px); }
+  .perf-row{
+    position:absolute; left:0; right:0; bottom:0;
+    height:26px;
+    background-repeat:repeat-x;
+    background-size:32px 26px;
+  }
+  .perf.to-paper .perf-row{ background-image: radial-gradient(circle 6px at 16px 26px, var(--paper) 6px, transparent 6.5px); }
+  .perf.to-ink .perf-row{ top:0; bottom:auto; background-image: radial-gradient(circle 6px at 16px 0px, var(--ink) 6px, transparent 6.5px); }
+
+  /* ---------- PROBLEM STRIP ---------- */
+  .problem{
+    background:var(--ink-2);
+    padding:56px 0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .problem .grid{
+    display:grid;
+    grid-template-columns: 1.1fr 1.4fr;
+    gap:48px;
+    align-items:start;
+  }
+  .problem h2{
+    font-size:clamp(24px,3vw,32px);
+    font-weight:700;
+    line-height:1.2;
+  }
+  .problem-list{ display:grid; gap:18px; }
+  .problem-list li{
+    display:flex; gap:14px;
+    color:var(--slate);
+    font-size:15.5px;
+  }
+  .problem-list li::before{
+    content:"×";
+    color:var(--signal);
+    font-weight:700;
+    font-size:18px;
+    flex:none;
+  }
+  @media (max-width:760px){ .problem .grid{ grid-template-columns:1fr; gap:24px; } }
+
+  /* ---------- SECTIONS on paper ---------- */
+  .on-paper{ background:var(--paper); color:var(--ink); }
+  .section{ padding:88px 0; }
+  .section-head{ max-width:640px; margin-bottom:52px; }
+  .section-head .eyebrow{ margin-bottom:14px; }
+  .section-head h2{
+    font-size:clamp(28px,4vw,42px);
+    font-weight:700;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+  .section-head p{
+    margin-top:14px;
+    color:#4A4F63;
+    font-size:16.5px;
+  }
+
+  /* manifest / contents list */
+  .manifest{
+    border-top:1px solid var(--line-dark);
+  }
+  .manifest-item{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:24px;
+    padding:30px 0;
+    border-bottom:1px solid var(--line-dark);
+  }
+  .manifest-item .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    color:var(--signal-dim);
+    font-weight:600;
+    padding-top:3px;
+  }
+  .manifest-item h3{
+    font-size:20px;
+    font-weight:700;
+  }
+  .manifest-item p{
+    margin-top:8px;
+    color:#4A4F63;
+    font-size:15.5px;
+    max-width:560px;
+  }
+  .manifest-item .tags{
+    margin-top:12px;
+    display:flex; gap:8px; flex-wrap:wrap;
+  }
+  .manifest-item .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    background:var(--paper-dim);
+    border:1px solid var(--line-dark);
+    padding:4px 9px;
+    border-radius:var(--radius);
+    color:#5A5F72;
+  }
+
+  /* ---------- TIMELINE (real sequence: Day 1/2/3) ---------- */
+  .timeline{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:2px;
+    background:var(--line-dark);
+    border:1px solid var(--line-dark);
+  }
+  .day{
+    background:var(--paper);
+    padding:32px 28px;
+  }
+  .day .day-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--signal-dim);
+    font-weight:600;
+  }
+  .day h3{
+    margin-top:10px;
+    font-size:21px;
+    font-weight:700;
+  }
+  .day p{
+    margin-top:10px;
+    font-size:15px;
+    color:#4A4F63;
+  }
+  @media (max-width:820px){ .timeline{ grid-template-columns:1fr; } }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials-wrap{ background:var(--ink); color:var(--paper); }
+  .testi-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+  }
+  .testi-card{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:28px 26px;
+    background:var(--ink-2);
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    height:100%;
+  }
+  .testi-card .receipt-tag{
+    position:absolute; top:0; right:20px;
+    transform:translateY(-50%);
+    background:var(--tape);
+    color:var(--ink);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-weight:700;
+    padding:4px 10px;
+    border-radius:var(--radius);
+  }
+  .testi-card .quote{
+    font-size:16px;
+    line-height:1.6;
+    flex:1;
+  }
+  .testi-card .quote::before{ content:"“"; color:var(--signal); }
+  .testi-card .quote::after{ content:"”"; color:var(--signal); }
+  .testi-foot{
+    margin-top:22px;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:10px;
+  }
+  .testi-foot .who{ font-weight:600; font-size:14.5px; }
+  .testi-foot .role{ font-size:13px; color:var(--slate); margin-top:2px; }
+  .testi-foot .stat{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--tape);
+    font-weight:600;
+    white-space:nowrap;
+  }
+  .testi-note{
+    margin-top:22px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--slate);
+    text-align:center;
+  }
+  @media (max-width:900px){ .testi-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- PRICING TICKET ---------- */
+  .pricing-wrap{ background:var(--paper); color:var(--ink); }
+  .ticket{
+    border:2px solid var(--ink);
+    border-radius:var(--radius);
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    max-width:880px;
+    margin:0 auto;
+    position:relative;
+    background:var(--paper);
+  }
+  .ticket::before{
+    content:"";
+    position:absolute;
+    top:0; bottom:0; left:63.9%;
+    width:0;
+    border-left:2px dashed var(--ink);
+  }
+  .ticket-left{ padding:40px 44px; }
+  .ticket-right{
+    padding:40px 36px;
+    display:flex; flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+    background:var(--ink);
+    color:var(--paper);
+  }
+  .ticket-left h3{
+    font-size:26px;
+    font-weight:700;
+  }
+  .ticket-left .eyebrow{ margin-bottom:12px; }
+  .ticket-list{ margin-top:22px; display:grid; gap:12px; }
+  .ticket-list li{
+    display:flex; gap:10px;
+    font-size:15px;
+    color:#3A3F52;
+  }
+  .ticket-list li::before{
+    content:"✓";
+    color:var(--signal-dim);
+    font-weight:700;
+    flex:none;
+  }
+  .price{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:44px;
+    font-weight:600;
+    color:var(--tape);
+  }
+  .price-note{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--slate);
+    margin-top:6px;
+  }
+  .ticket-right .btn-primary{ margin-top:24px; }
+  @media (max-width:760px){
+    .ticket{ grid-template-columns:1fr; }
+    .ticket::before{ display:none; }
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-wrap{ background:var(--paper); color:var(--ink); }
+  .faq-list{ border-top:1px solid var(--line-dark); }
+  details{
+    border-bottom:1px solid var(--line-dark);
+    padding:22px 0;
+  }
+  summary{
+    cursor:pointer;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    font-weight:600;
+    font-size:16.5px;
+  }
+  summary::-webkit-details-marker{ display:none; }
+  summary::after{
+    content:"+";
+    font-family:'IBM Plex Mono', monospace;
+    font-size:20px;
+    color:var(--signal-dim);
+    transition:transform .15s ease;
+    flex:none;
+  }
+  details[open] summary::after{ transform:rotate(45deg); }
+  details p{
+    margin-top:14px;
+    color:#4A4F63;
+    font-size:15.5px;
+    max-width:680px;
+  }
+
+  /* ---------- FINAL CTA ---------- */
+  .final-cta{
+    background:var(--ink);
+    padding:96px 0;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .final-cta h2{
+    font-size:clamp(30px,4.4vw,50px);
+    font-weight:700;
+    max-width:680px;
+    margin:0 auto;
+    line-height:1.15;
+  }
+  .final-cta h2 em{ font-style:normal; color:var(--signal); }
+  .final-cta p{
+    margin-top:16px;
+    color:var(--slate);
+    font-size:16.5px;
+  }
+  .final-cta .hero-ctas{ justify-content:center; margin-top:32px; }
+  .final-cta .slots{
+    margin-top:18px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--tape);
+    letter-spacing:0.06em;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--ink-2);
+    border-top:1px solid var(--line);
+    padding:40px 0;
+  }
+  footer .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  footer .f-mark{ font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--slate); }
+  footer .f-links{ display:flex; gap:20px; }
+  footer .f-links a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--slate);
+    text-decoration:none;
+  }
+  footer .f-links a:hover{ color:var(--paper); }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <div class="nav-mark">RAPID LAUNCH</div>
+    <a class="nav-cta btn-focus" href="#reserve">Reserve a slot</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="stamp" aria-hidden="true">
+    <div>
+      <div class="l1">RAPID</div>
+      <div class="l2">APPROVED</div>
+    </div>
+  </div>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Package No. 001 — Rapid Launch</div>
+    <h1>Your offer, live and <em>emailing leads</em> in 72 hours.</h1>
+    <p class="sub">A conversion-ready landing page plus a 5-email welcome sequence — drafted with AI at speed, refined by hand for accuracy, and delivered on a deadline you can actually plan around.</p>
+    <div class="hero-ctas">
+      <a href="#reserve" class="btn-primary btn-focus">Reserve your launch slot</a>
+      <a href="#contents" class="btn-secondary btn-focus">See what's inside</a>
+    </div>
+
+    <div class="meta-row">
+      <div class="meta-cell">
+        <span class="k">Delivery</span>
+        <span class="v tape">72 Hours</span>
+      </div>
+      <div class="meta-cell">
+        <span class="k">Format</span>
+        <span class="v">1 Page + 5 Emails</span>
+      </div>
+      <div class="meta-cell">
+        <span class="k">Status</span>
+        <span class="v">3 Slots / Month</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="perf to-ink"><div class="perf-row"></div></div>
+
+<section class="problem">
+  <div class="wrap grid">
+    <h2>Most launches stall waiting on "one more revision."</h2>
+    <ul class="problem-list">
+      <li>The landing page has been "almost done" for three weeks, and the offer is still sitting in a doc.</li>
+      <li>The welcome sequence gets written for subscriber one, then never makes it past email two.</li>
+      <li>Every agency quote comes back at four figures and four weeks — and you needed this out last Friday.</li>
+      <li>You don't need more strategy decks. You need the page built and the emails scheduled.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="on-paper section" id="contents">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow on-paper">What's in the package</div>
+      <h2>One page, five emails, nothing left half-finished.</h2>
+      <p>Everything is built to publish, not to "review and revise forever." AI handles first-pass drafting and structure; every line is checked, tightened, and matched to your offer before it ships.</p>
+    </div>
+
+    <div class="manifest">
+      <div class="manifest-item">
+        <div class="num mono">01</div>
+        <div>
+          <h3>Conversion-focused landing page</h3>
+          <p>Single scrolling page built around one offer and one action: hero, proof, offer breakdown, objection-handling, and a call to action that doesn't compete with itself.</p>
+          <div class="tags">
+            <span class="tag">Mobile-ready</span>
+            <span class="tag">Copy included</span>
+            <span class="tag">Your brand colors</span>
+          </div>
+        </div>
+      </div>
+      <div class="manifest-item">
+        <div class="num mono">02</div>
+        <div>
+          <h3>5-email welcome sequence</h3>
+          <p>Written to carry a new subscriber from "just signed up" to "ready to buy" — welcome, credibility, objection, story, offer. Sequenced and timed, ready to load into your sender of choice.</p>
+          <div class="tags">
+            <span class="tag">Subject lines</span>
+            <span class="tag">Send-time notes</span>
+            <span class="tag">ESP-agnostic</span>
+          </div>
+        </div>
+      </div>
+      <div class="manifest-item">
+        <div class="num mono">03</div>
+        <div>
+          <h3>One revision round</h3>
+          <p>A single structured round to tighten wording, swap in real testimonials, or adjust the offer — turned around within 24 hours of your notes.</p>
+        </div>
+      </div>
+      <div class="manifest-item">
+        <div class="num mono">04</div>
+        <div>
+          <h3>Launch handoff</h3>
+          <p>Page files and email copy delivered with a short walkthrough covering exactly where to paste what, so going live doesn't need a second freelancer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="on-paper section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow on-paper">The 72-hour sprint</div>
+      <h2>A fixed three-day build, start to finish.</h2>
+      <p>This runs as a sprint, not an open-ended engagement — the schedule below is what actually happens after you reserve a slot.</p>
+    </div>
+    <div class="timeline">
+      <div class="day">
+        <div class="day-label mono">Day 1 — Intake</div>
+        <h3>Brief &amp; first draft</h3>
+        <p>Short intake form or call on your offer and audience. AI-assisted research pulls angles and objections; first draft of the page copy and email arc is roughed out same day.</p>
+      </div>
+      <div class="day">
+        <div class="day-label mono">Day 2 — Build</div>
+        <h3>Page built, emails sequenced</h3>
+        <p>Landing page is designed and built in your colors. All five emails are drafted in full and linked back to the page's call to action.</p>
+      </div>
+      <div class="day">
+        <div class="day-label mono">Day 3 — Handoff</div>
+        <h3>Polish &amp; delivery</h3>
+        <p>One revision pass, a cross-device check, and delivery of finished files plus a short walkthrough — you're live before the sprint window closes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="perf to-paper"><div class="perf-row"></div></div>
+
+<section class="testimonials-wrap section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Delivered &amp; signed off</div>
+      <h2>What past launches said once they were live.</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <span class="receipt-tag">Received</span>
+        <p class="quote">I'd been sitting on this offer for two months. Jeremiah had the page live and my first sequence sending inside three days — no back-and-forth, no scope creep.</p>
+        <div class="testi-foot">
+          <div>
+            <div class="who">Dana Okafor</div>
+            <div class="role">Online fitness coach</div>
+          </div>
+          <div class="stat mono">+38% opt-in</div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <span class="receipt-tag">Received</span>
+        <p class="quote">My inbox went from a graveyard to actually converting. The emails sounded like me, not like a template — and I didn't have to write a single one.</p>
+        <div class="testi-foot">
+          <div>
+            <div class="who">Marcus Webb</div>
+            <div class="role">Founder, handmade goods shop</div>
+          </div>
+          <div class="stat mono">+21% repeat orders</div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <span class="receipt-tag">Received</span>
+        <p class="quote">I've paid agencies four times this price for a slower result. This felt like handing the project to someone who was going to actually finish it.</p>
+        <div class="testi-foot">
+          <div>
+            <div class="who">Priya Raman</div>
+            <div class="role">B2B consultant</div>
+          </div>
+          <div class="stat mono">12 leads / wk 1</div>
+        </div>
+      </div>
+    </div>
+    <p class="testi-note">Placeholder testimonials — swap in your own client names, quotes, and results before publishing.</p>
+  </div>
+</section>
+
+<section class="pricing-wrap section" id="reserve">
+  <div class="wrap">
+    <div class="section-head" style="margin-left:auto;margin-right:auto;text-align:center;">
+      <div class="eyebrow on-paper">The package</div>
+      <h2>One fixed price. One fixed timeline.</h2>
+    </div>
+    <div class="ticket">
+      <div class="ticket-left">
+        <div class="eyebrow on-paper">Rapid Launch Package</div>
+        <h3>Landing page + 5-email sequence</h3>
+        <ul class="ticket-list">
+          <li>Full landing page, built and styled</li>
+          <li>5-email welcome sequence, written &amp; sequenced</li>
+          <li>One structured revision round</li>
+          <li>Delivered inside 72 hours of intake</li>
+          <li>Launch walkthrough included</li>
+        </ul>
+      </div>
+      <div class="ticket-right">
+        <div class="eyebrow">Total</div>
+        <div class="price mono">$80</div>
+        <div class="price-note">Flat rate — no hourly billing</div>
+        <a href="j8dominax@gmail.com?subject=Rapid%20Launch%20Package" class="btn-primary btn-focus">Dispatch your request</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-wrap section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow on-paper">Before you reserve</div>
+      <h2>Common questions</h2>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>I don't have brand colors or a logo yet. Is that a problem?</summary>
+        <p>No — bring whatever you have, even if it's just a vibe or a competitor you like. The page will launch with a clean, coherent look; you can swap in full brand assets later without a rebuild.</p>
+      </details>
+      <details>
+        <summary>What email platform does the sequence work with?</summary>
+        <p>The copy is written to be platform-agnostic — subject lines, body copy, and send-time notes that paste cleanly into whichever sender you already use.</p>
+      </details>
+      <details>
+        <summary>What does "AI-assisted" actually mean here?</summary>
+        <p>AI handles first-pass research, structure, and drafting so the sprint stays fast. Every word is then reviewed, rewritten where needed, and checked against your actual offer before delivery — nothing ships unread.</p>
+      </details>
+      <details>
+        <summary>What if I need changes after the one revision round?</summary>
+        <p>Extra rounds can be added at an hourly rate, but most projects don't need them — the intake step exists specifically to catch misunderstandings before the build starts.</p>
+      </details>
+      <details>
+        <summary>Can I get it faster than 72 hours?</summary>
+        <p>Rush delivery is sometimes available depending on the current slot schedule — ask when you reserve and it'll be confirmed before the sprint starts.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap">
+    <h2>Stop drafting it. Let's <em>ship it</em> this week.</h2>
+    <p>Three sprint slots open per month — once they're booked, the next window is next month.</p>
+    <div class="hero-ctas">
+      <a href="j8ominax@gmail.com?subject=Rapid%20Launch%20Package" class="btn-primary btn-focus">Reserve your launch slot</a>
+    </div>
+    <div class="slots mono">2 of 3 slots remaining this month</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-mark">© 2026 Jeremiah — Rapid Launch Package</div>
+    <div class="f-links">
+      <a href="j8dominax@gmail.com">Email</a>
+      <a href="#contents">What's included</a>
+      <a href="#reserve">Pricing</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
