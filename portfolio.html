@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Rapid Launch</title>
+  <meta name="description" content="Browse recent website builds by Rapid Launch across landing pages, e-commerce, and corporate platforms.">
+
+  <meta property="og:title" content="Portfolio | Rapid Launch">
+  <meta property="og:description" content="Recent builds across landing pages, e-commerce stores, and corporate platforms.">
+  <meta property="og:type" content="website">
+  <!-- Once the site is live on a real domain, change this to an absolute URL,
+       e.g. https://yourdomain.com/og-image.png -->
+  <meta property="og:image" content="og-image.png">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">RL</span>
+        <span class="logo-text">RAPID <span class="text-accent">LAUNCH</span></span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="portfolio.html" class="nav-link active" aria-current="page">Portfolio</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="contact.html" class="btn btn-primary btn-sm">Book a Call</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+          <span class="menu-toggle-bar"></span>
+          <span class="menu-toggle-bar"></span>
+          <span class="menu-toggle-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ==================== PAGE HERO ==================== -->
+    <section class="page-hero">
+      <div class="container reveal">
+        <span class="sheet-tag">RL / A-03 — Selected Builds</span>
+        <h1 class="page-title">Recent work.</h1>
+        <p class="page-subtitle">Filter by category to see how we approach different types of builds.</p>
+      </div>
+    </section>
+
+    <!-- ==================== FILTERS ==================== -->
+    <section class="portfolio-filters">
+      <div class="container">
+        <div class="filter-group" role="group" aria-label="Filter portfolio by category">
+          <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-btn" data-filter="ecommerce" aria-pressed="false">E-Commerce</button>
+          <button class="filter-btn" data-filter="landing" aria-pressed="false">Landing Pages</button>
+          <button class="filter-btn" data-filter="corporate" aria-pressed="false">Corporate</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== GALLERY GRID ==================== -->
+    <section class="portfolio-gallery">
+      <div class="container">
+        <div class="portfolio-grid" id="portfolio-grid">
+
+          <!-- E-Commerce -->
+          <article class="portfolio-card" data-category="ecommerce">
+            <div class="portfolio-media">
+              <img src="assets/portfolio/ecommerce-1.svg" alt="Northfield Supply Co. — website preview" loading="lazy">
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-tag">E-Commerce</span>
+              <h3 class="portfolio-name">Northfield Supply Co.</h3>
+              <div class="portfolio-style-wrap"><p class="portfolio-style">Bold product photography, single-page checkout</p></div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="ecommerce">
+            <div class="portfolio-media">
+              <img src="assets/portfolio/ecommerce-2.svg" alt="Lumen &amp; Co. — website preview" loading="lazy">
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-tag">E-Commerce</span>
+              <h3 class="portfolio-name">Lumen &amp; Co.</h3>
+              <div class="portfolio-style-wrap"><p class="portfolio-style">Minimalist catalog grid with quick-view modals</p></div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="ecommerce">
+            <div class="portfolio-media">
+              <img src="assets/portfolio/ecommerce-3.svg" alt="Vantage Sneaker Lab — website preview" loading="lazy">
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-tag">E-Commerce</span>
+              <h3 class="portfolio-name">Vantage Sneaker Lab</h3>
+              <div class="portfolio-style-wrap"><p class="portfolio-style">Dark-mode storefront with animated product reveals</p></div>
+            </div>
+          </article>
+
+          <!-- Landing Pages -->
+          <article class="portfolio-card" data-category="landing">
+            <div class="portfolio-media">
+              <img src="assets/portfolio/landing-1.svg" alt="Momentum Coaching — website preview" loading="lazy">
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-tag">Landing Page</span>
+              <h3 class="portfolio-name">Momentum Coaching</h3>
+              <div class="portfolio-style-wrap"><p class="portfolio-style">High-contrast hero with countdown-driven urgency</p></div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="landing">
+            <div class="portfolio-media">
+              <img src="assets/portfolio/landing-2.svg" alt="Solstice Wellness Coaching — website preview" loading="lazy">
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-tag">Landing Page</span>
+              <h3 class="portfolio-name">Solstice Wellness Coaching</h3>
+              <div class="portfolio-style-wrap"><p class="portfolio-style">Warm, editorial layout for a coaching offer</p></div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="landing">
+            <div class="portfolio-media">
+              <img src="assets/portfolio/landing-3.svg" alt="Pulse Fitness App — website preview" loading="lazy">
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-tag">Landing Page</span>
+              <h3 class="portfolio-name">Pulse Fitness App</h3>
+              <div class="portfolio-style-wrap"><p class="portfolio-style">Product launch page with embedded demo video</p></div>
+            </div>
+          </article>
+
+          <!-- Corporate -->
+          <article class="portfolio-card" data-category="corporate">
+            <div class="portfolio-media">
+              <img src="assets/portfolio/corporate-1.svg" alt="Meridian Consulting Group — website preview" loading="lazy">
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-tag">Corporate</span>
+              <h3 class="portfolio-name">Meridian Consulting Group</h3>
+              <div class="portfolio-style-wrap"><p class="portfolio-style">Multi-department platform with custom CMS</p></div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="corporate">
+            <div class="portfolio-media">
+              <img src="assets/portfolio/corporate-2.svg" alt="Ashford Capital Partners — website preview" loading="lazy">
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-tag">Corporate</span>
+              <h3 class="portfolio-name">Ashford Capital Partners</h3>
+              <div class="portfolio-style-wrap"><p class="portfolio-style">Investor-facing site with data-driven layout</p></div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="corporate">
+            <div class="portfolio-media">
+              <img src="assets/portfolio/corporate-3.svg" alt="Northbridge Logistics — website preview" loading="lazy">
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-tag">Corporate</span>
+              <h3 class="portfolio-name">Northbridge Logistics</h3>
+              <div class="portfolio-style-wrap"><p class="portfolio-style">Enterprise rebrand across 40+ pages</p></div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">RL</span>
+          <span class="logo-text">RAPID <span class="text-accent">LAUNCH</span></span>
+        </a>
+        <p class="footer-tagline">Precision-engineered websites for ambitious brands.</p>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Book a Call</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Business Hours</h3>
+        <ul class="footer-hours">
+          <li><span>Mon – Fri</span><span>9:00 AM – 6:00 PM WAT</span></li>
+          <li><span>Saturday</span><span>By Appointment</span></li>
+          <li><span>Sunday</span><span>Closed</span></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Get In Touch</h3>
+        <ul class="footer-links">
+          <li><a href="mailto:rapidlaunchinfo@gmail.com">rapidlaunchinfo@gmail.com</a></li>
+          <li><a href="https://wa.me/2349019044823" target="_blank" rel="noopener noreferrer">WhatsApp Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; <span id="year"></span> Rapid Launch. All rights reserved. · <a href="privacy-policy.html">Privacy Policy</a> · <a href="terms-of-service.html">Terms of Service</a></p>
+        <p>Project: Rapid Launch · Rev 2026.1 · Status: Live</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
